@@ -5,6 +5,7 @@ defmodule GuessingGame do
   # "bigger" -> bigger (low,high)
   # "smaller" -> smaller (low,high)
   # anything else -> "enter valid response"
+  def guess(a, b) when a > b, do: guess(b, a) # min/max guard one liner function
 
   def guess(low, high) do
   answer = IO.gets ("Hmmm maybe your'e thinking of #{mid(low,high)}?\n")
