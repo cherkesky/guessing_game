@@ -7,8 +7,14 @@ defmodule GuessingGame do
   # anything else -> "enter valid response"
 
   def guess(low, high) do
-    IO.puts(low)
-    IO.puts(high)
+  answer = IO.gets ("Hmmm maybe your'e thinking of #{mid(low,high)}?\n")
+  case String.trim(answer) do
+    "bigger" -> bigger(low,high)
+    "smaller" -> smaller(low,high)
+    "yes" -> "AWESOME!!! We guessed it right!"
+    _ -> IO.puts ~s{Type "bigger" or "smaller" or "yes"}
+    guess(low, high)
+  end
   end
 
   def mid(low, high) do
